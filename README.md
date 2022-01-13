@@ -63,7 +63,7 @@ Two random variables were also included in the data set for testing the regressi
 ## EDA and model development
 The EDA and model selection is included in the attached 
 jupyter notebok
-`EDA_and_model_selection.ipynb` for details.
+`data_eda.ipynb` for details.
 Final model is trained there and saved in a pickle file.
 
 ## Deployment
@@ -74,14 +74,4 @@ pipenv shell
 
 The code can be run in a container using the included
 Dockerfile and the build.sh and rundocker.sh scripts.
-
-The model was deployed as an streamlit app
-
-### streamlit
-The app has been
-uploaded here:
-https://share.streamlit.io/carlos9917/ml_project2
-Simply follow instructions in webapp to test.
-All the source code is included in this repo.
-It only needs streamlit_app.py, the bin file with the model and the requirements.txt file
 
