@@ -46,7 +46,7 @@ def load_model(model_type="Linear regression"):
     model_file = { "Linear regression":"lin_reg.bin",
                    "Lasso regression": "lasso_reg.bin",
                    "Ridge regression": "ridge_reg.bin",
-                   "Decision tree":"dec_tree"
+                   "Decision tree":"dec_tree.bin"
                    }
     import pickle
     with open(model_file[model_type], 'rb') as f_in:
