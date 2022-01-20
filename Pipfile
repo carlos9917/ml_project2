@@ -4,10 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dmi-open-data = "*"
-seaborn = "*"
-scikit-learn = "*"
+scikit-learn = "==1.0"
+uvicorn = "*"
+fastapi = "*"
 pandas = "*"
+selenium = "*"
+streamlit = "*"
+beautifulsoup4 = "*"
+seaborn = "*"
+tqdm = "*"
 
 [dev-packages]
 
