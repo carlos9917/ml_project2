@@ -35,7 +35,7 @@ df_train_full, df_test = train_test_split(df, test_size=0.2,random_state=4,shuff
 df_train, df_val = train_test_split(df_train_full, test_size=0.25,random_state=42, shuffle=False)
 # Data normalization
 from sklearn.preprocessing import StandardScaler
-feature_cols = ['WindSpeedPast1h', 'WindMax', 'WindGustAlwaysPast1h', 'WindMin', 'WindMinPast1h', 'TempDew', 'Pressure', 'PressureAtSea', 'WindDirPast1h', 'TempDry', 'Weather', 'TempMeanPast1h', 'TempMaxPast1h', 'TempMinPast1h', 'Humidity', 'HumidityPast1h', 'Visibility']
+feature_cols = ['WindMax', 'WindGustAlwaysPast1h', 'WindMin', 'WindMinPast1h', 'TempDew', 'Pressure', 'PressureAtSea', 'WindDirPast1h', 'TempDry', 'Weather', 'TempMeanPast1h', 'TempMaxPast1h', 'TempMinPast1h', 'Humidity', 'HumidityPast1h', 'Visibility']
 scaler = StandardScaler()
 X_train= df_train[feature_cols]
 scaler.fit(X_train)

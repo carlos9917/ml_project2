@@ -101,9 +101,12 @@ Dockerfile and the build.sh and rundocker.sh scripts.
 The app can also be run using the stream1.py file 
 included using streamlit as follows:
 `streamlit run stream2.py`
+### NOTE: 
+you need to install streamlit locally first using
+pipenv install streamlit
+Installing it and adding it to my Pipfile caused
+some library clashes in my app deployment.
 
-
-It has also been deployed here
-
+The app has been deployed here
 
 
