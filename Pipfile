@@ -8,7 +8,6 @@ dmi-open-data = "*"
 seaborn = "*"
 scikit-learn = "*"
 pandas = "*"
-streamlit = "*"
 
 [dev-packages]
 
