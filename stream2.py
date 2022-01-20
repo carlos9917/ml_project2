@@ -93,7 +93,7 @@ def user_input():
 #df = user_input()
 X_use,df_sel,model = user_input()
 st.subheader('User Input parameters')
-st.write(df_sel)
+st.write(df_sel[feature_cols])
 #lr = load_model()
 prediction = model.predict(X_use)
 #print(prediction[0])
