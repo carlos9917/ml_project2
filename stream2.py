@@ -42,9 +42,14 @@ scaler.fit(X_train)
 
 
 # Read the sqlite file
-def load_model(model_file="lin_reg.bin"):
+def load_model(model_type="Linear regression"):
+    model_file = { "Linear regression":"lin_reg.bin",
+                   "Lasso regression": "lasso_reg.bin",
+                   "Ridge regression": "ridge_reg.bin",
+                   "Decision tree":"dec_tree"
+                   }
     import pickle
-    with open(model_file, 'rb') as f_in:
+    with open(model_file[model_type], 'rb') as f_in:
          model = pickle.load(f_in)
     return model
 
@@ -57,11 +62,18 @@ def user_input():
     Select the date and return a dataframe with the data
     """
     selected_date = st.sidebar.date_input('date to predict', datetime(2021,11,6))
+
+    select_model = st.sidebar.selectbox(
+    "Select model",
+    ("Linear regression", "Lasso regression", "Ridge regression","Decision tree")
+)
     pred_date= datetime.combine(selected_date, datetime.min.time())
-    data={}
     if pred_date > max_date or pred_date < min_date:
         st.error(f"{pred_date} outside testing range!")
         #print(f"{pred_date} outside range!")
+
+    #selet model
+    model = load_model(select_model)
     #select only the value for this date:
     df_sel = df_test[df_test["date"] == pred_date]
     X_use= df_sel[feature_cols]
@@ -77,13 +89,13 @@ def user_input():
     #features = pd.DataFrame(data, index=[0])
 
 
-    return X_use,df_sel
+    return X_use,df_sel,model
 #df = user_input()
-X_use,df_sel = user_input()
+X_use,df_sel,model = user_input()
 st.subheader('User Input parameters')
 st.write(df_sel)
-lr = load_model()
-prediction = lr.predict(X_use)
+#lr = load_model()
+prediction = model.predict(X_use)
 #print(prediction[0])
 st.subheader('Wind speed prediction (m/s)')
 st.write(prediction[0])
