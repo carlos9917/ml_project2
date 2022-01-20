@@ -108,5 +108,5 @@ Installing it and adding it to my Pipfile caused
 some library clashes in my app deployment.
 
 The app has been deployed here
-
+https://share.streamlit.io/carlos9917/ml_project2
 
