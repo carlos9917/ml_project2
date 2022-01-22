@@ -13,6 +13,7 @@ streamlit = "*"
 beautifulsoup4 = "*"
 seaborn = "*"
 tqdm = "*"
+requests = "*"
 
 [dev-packages]
 

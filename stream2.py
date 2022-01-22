@@ -1,13 +1,7 @@
 import streamlit as st
 import pandas as pd
 import base64
-#import matplotlib.pyplot as plt
-#import matplotlib.dates as md
-#from matplotlib.ticker import MaxNLocator
-#import seaborn as sns
 import numpy as np
-#import yfinance as yf
-#import sqlite3
 from datetime import datetime
 from datetime import timedelta
 from collections import OrderedDict
@@ -20,6 +14,8 @@ based on a pre-trained model. \n
 Data for the testing covers  period: 2021-11-06 14:20:00 to 2021-11-30 23:50:00
 The user must select the date and time only inside this range
 """)
+
+#the model can only be used inside this testing period
 min_date = datetime(2021,11,6)
 max_date = datetime(2021,11,30)
 #Load the data I used, then select only the testing part
@@ -80,13 +76,6 @@ def user_input():
     X_use = scaler.transform(X_use)
     #y_pred = df_test["WindSpeed"].values
 
-
-    #light = st.sidebar.slider('Lights use (Wh)', 0, 70, 10)
-    #data["T_out"] = temp_out
-    #data["RH_out"] = hum_out
-    #for col in ['Press_mm_hg', 'Windspeed', 'Visibility', 'lights','Tdewpoint']:
-    #    data[col] = 0.0
-    #features = pd.DataFrame(data, index=[0])
 
 
     return X_use,df_sel,model

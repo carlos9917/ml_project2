@@ -1,4 +1,4 @@
-# 3rd  project for Alex Grigoriev's ML Zoomcamp
+# 3rd  project for Alex Grigorev's ML Zoomcamp
 
 Since I missed the capstone project I am submitting this
 project to finalize the bootcamp with at least 2 out of 3 
@@ -87,26 +87,53 @@ Given the constraints is not surprise that a simple linear regression
 worked quite well in this period. The final app (see below) is 
 limited to only the testing period.
 
-The final model is trained there and saved in a pickle file.
+The final models are trained in the jupyter notebook and saved in pickle files.
+
+The model can only be tested inside the testing period.
+I am only given the date to use this, hence the values
+of the features are taking.
+One could also provide the values of the other features, but
+this would require getting the data from the DMI app
+for the particular date. I did not have time to implement this part.
+
+It was my intention to use some sort of NN in this process,
+but using traditional NN techniques uses too much data
+and I did not have time (or computer power) to go further.
+Another alternative is using Recurrent Neural Networks,
+which are well suited for time series predictions.
 
 ## Deployment
-
+The environment has been encapsulated using `pipenv`.
 The requirements are included in Pipfile and Pipifile.lock
 Use pipenv to activate environment with
 `pipenv shell`
 
-The app can be run in a container using the included
-Dockerfile and the build.sh and rundocker.sh scripts.
+The prediction can be run in a container using the included scripts:
 
-The app can also be run using the stream1.py file 
+- Dockerfile  
+- build.sh  
+- rundocker.sh scripts
+
+Build the image using `build.sh`
+Run a container using `rundocker.sh`
+
+To run the prediction use:
+`python predict.py`
+This will run the Flask server.
+Then in another terminal run
+`python predict-test`
+and this should print the predictions from the different models
+for the given date.
+
+
+The prediction can also be tested using the `stream1.py` file 
 included using streamlit as follows:
 `streamlit run stream2.py`
 ### NOTE: 
 you need to install streamlit locally first using
 pipenv install streamlit
 Installing it and adding it to my Pipfile caused
-some library clashes in my app deployment.
+some library clashes in my app deployment to streamlit.
 
-The app has been deployed here
-https://share.streamlit.io/carlos9917/ml_project2
+The app has been deployed [here](https://share.streamlit.io/carlos9917/ml_project2)
 
