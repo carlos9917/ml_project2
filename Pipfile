@@ -9,11 +9,12 @@ uvicorn = "*"
 fastapi = "*"
 pandas = "*"
 selenium = "*"
-streamlit = "*"
 beautifulsoup4 = "*"
 seaborn = "*"
 tqdm = "*"
 requests = "*"
+flask = "*"
+dmi-open-data = "*"
 
 [dev-packages]
 
