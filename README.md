@@ -108,25 +108,50 @@ The requirements are included in Pipfile and Pipifile.lock
 Use pipenv to activate environment with
 `pipenv shell`
 
+### test prediction
+To test the prediction run:
+`python predict.py`
+and in another terminal run:
+`python predict-test.py`
+
+The prediction can be based on providing date or asking for data
+from DMI's API (note you need to setup your own API key for this to work):
+
+Change the date in `predict-test.py` to try a different date or select new data.
+When setting `request-weather-data`to False only the test period can be used:
+(2021-11-6 to 2021-11-30)
+
+```
+wind_res = {"date": "2021-11-07",
+             "request-weather-data": False
+            }
+
+```
+
+### containerization
 The prediction can be run in a container using the included scripts:
 
 - Dockerfile  
 - build.sh  
-- rundocker.sh scripts
+- run_container.sh scripts
 
 Build the image using `build.sh`
-Run a container using `rundocker.sh`
+Run a container using `run_container.sh`
 
 To run the prediction use:
 `python predict.py`
 This will run the Flask server.
 Then in another terminal run
 `python predict-test`
+
 and this should print the predictions from the different models
-for the given date.
+for the given date. To call the DMI API from inside the container
+you will need to include the `DMI_API_KEY` in the Dockerfile
+or hard code it in the `get_weather_features.py` script.
 
+### Web deployment
 
-The prediction can also be tested using the `stream1.py` file 
+The prediction can also be tested using the `stream2.py` file 
 included using streamlit as follows:
 `streamlit run stream2.py`
 ### NOTE: 
@@ -137,3 +162,4 @@ some library clashes in my app deployment to streamlit.
 
 The app has been deployed [here](https://share.streamlit.io/carlos9917/ml_project2)
 
+NOTE: This app will only work providing a given date.

@@ -1,2 +1,1 @@
-#docker build -t zoomcamp-test .
-docker build -t zoomcamp .
+docker build -t ml_project2 .

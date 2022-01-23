@@ -10,7 +10,7 @@ url = 'http://localhost:9999/predict'
 wind_res = {"date": "2021-11-07",
              "request-weather-data": False
             }
-
+print(wind_res)
 response = requests.post(url, json=wind_res).json()
 print(response)
 
