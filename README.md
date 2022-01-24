@@ -57,7 +57,7 @@ Other variables, which should been available but came out empty were
 The aim is to predict hourly wind speed using ML techniques.
 
 ## EDA and model development
-The data was downloaded using the scripts provided in **weather_data**
+The data was downloaded using the scripts provided in the directory `weather_data``
 - `get_DMI_data.py` gets the data
 - ` clean_data.py` merges all the fields and outputs the data in one file.
 The data was downloaded for 2 whole years (2020 and 2021)
@@ -70,8 +70,10 @@ without available data. Setting the data to zero in missing values
 produces many sudden jumps and training the model for a long
 period with the sudden jumps produces a very bad model in all cases.
 Replacing the values with the means had the same effect.
+In the end I was forced to use only a continuous series of data
+(from Aug until Dec 2021). 
 
-The data split in test, validation and training was done without any reshuffling
+The data is split in test, validation and training was done without any reshuffling
 in order to keep the order of the data stream.
 
 Another issue was that selecting the whole period
@@ -89,18 +91,19 @@ limited to only the testing period.
 
 The final models are trained in the jupyter notebook and saved in pickle files.
 
-The model can only be tested inside the testing period.
-I am only given the date to use this, hence the values
-of the features are taking.
-One could also provide the values of the other features, but
-this would require getting the data from the DMI app
-for the particular date. I did not have time to implement this part.
+The following models were tested:
+- Linear regression
+- Lasso regression
+- Ridge regression
+- Decision tree
+- Recurrent neural network (Sequential)
 
-It was my intention to use some sort of NN in this process,
-but using traditional NN techniques uses too much data
-and I did not have time (or computer power) to go further.
-Another alternative is using Recurrent Neural Networks,
-which are well suited for time series predictions.
+The models that performed best were the linear and Lasso models.
+The RNN model performed quite poorly, but this is probably
+due to the large amount of features I used (16). It would 
+make more sense to get rid of some of these (not tested for lack of time).
+I tried this, but also got very poor results. I include the model here
+for reference only, since I do not use it in the predictions.
 
 ## Deployment
 The environment has been encapsulated using `pipenv`.
@@ -115,7 +118,7 @@ and in another terminal run:
 `python predict-test.py`
 
 The prediction can be based on providing date or asking for data
-from DMI's API (note you need to setup your own API key for this to work):
+from DMI's API (**note you need to setup your own API key for this to work**):
 
 Change the date in `predict-test.py` to try a different date or select new data.
 When setting `request-weather-data`to False only the test period can be used:
@@ -149,6 +152,7 @@ for the given date. To call the DMI API from inside the container
 you will need to include the `DMI_API_KEY` in the Dockerfile
 or hard code it in the `get_weather_features.py` script.
 
+
 ### Web deployment
 
 The prediction can also be tested using the `stream2.py` file 
@@ -162,4 +166,4 @@ some library clashes in my app deployment to streamlit.
 
 The app has been deployed [here](https://share.streamlit.io/carlos9917/ml_project2)
 
-NOTE: This app will only work providing a given date.
+NOTE: This app will only work providing a given date that falls inside the testing period.

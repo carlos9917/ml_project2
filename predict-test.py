@@ -1,10 +1,12 @@
+# Code to test predictions
+# If request-weather-data is True you
+# must have a valid API key for DMIs API
+# See get_weather_features.py for details
+
 import requests
 from datetime import datetime
 url = 'http://localhost:9999/predict'
 
-# If request-weather-data is True you
-# must have a valid API key 
-# See get_weather_features.py for details
 
 
 wind_res = {"date": "2021-11-07",
