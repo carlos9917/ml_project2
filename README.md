@@ -136,7 +136,7 @@ The prediction can be run in a container using the included scripts:
 
 - Dockerfile  
 - build.sh  
-- run_container.sh scripts
+- run_container.sh
 
 Build the image using `build.sh`
 Run a container using `run_container.sh`
