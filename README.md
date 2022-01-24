@@ -165,5 +165,4 @@ Installing it and adding it to my Pipfile caused
 some library clashes in my app deployment to streamlit.
 
 The app has been deployed [here](https://share.streamlit.io/carlos9917/ml_project2)
-
-NOTE: This app will only work providing a given date that falls inside the testing period.
+This streamlit app will only work providing a given date that falls inside the testing period.
