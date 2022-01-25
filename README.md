@@ -104,6 +104,7 @@ due to the large amount of features I used (16). It would
 make more sense to get rid of some of these (not tested for lack of time).
 I tried this, but also got very poor results. I include the model here
 for reference only, since I do not use it in the predictions.
+To test model use the notebook `rnn_test.ipynb`.
 
 ## Deployment
 The environment has been encapsulated using `pipenv`.
