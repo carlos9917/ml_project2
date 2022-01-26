@@ -102,7 +102,10 @@ The models that performed best were the linear and Lasso models.
 The RNN model performed quite poorly, but this is probably
 due to the large amount of features I used (16). It would 
 make more sense to get rid of some of these (not tested for lack of time).
-I tried this, but also got very poor results. I include the model here
+I tried this, but also got very poor results. Another alternative
+is to train the model with far longer time series. Unfortunately
+my laptop was not quick enough and got some memory limitations, but I plan to train the model
+with a longer time series in the future. I include the model here
 for reference only, since I do not use it in the predictions.
 To test model use the notebook `rnn_test.ipynb`.
 
